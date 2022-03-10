@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Bio Cardio</title>
+    <meta charset="utf-8">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Target Weight Predictor</h2>
+            </div>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="col-md-7">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                    <form id="contactForm" name="contactForm" class="contactForm">
+                        <div class="row">
+							<div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="height">Height</label>
+                                    <input type="text" class="form-control" required name="height" id="height" placeholder="Height in Centimeters">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="weight">Weight</label>
+                                    <input type="text" class="form-control" required name="weight" id="weight" placeholder="Weight in Pounds">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="gender">Gender</label>
+                                    <select class="form-control" required name="gender" id="gender">
+                                        <option value="" disabled="disabled" selected="selected">Select your Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="age">Age</label>
+                                    <input type="text" class="form-control" required name="age" id="age" placeholder="Age">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="gender">Smoke</label>
+                                    <select class="form-control" required name="smoke" id="smoke">
+                                        <option value="" disabled="disabled" selected="selected">Select your answer</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label" for="alcohol">Alcohol</label>
+                                    <select class="form-control" required name="alcohol" id="alcohol">
+                                        <option value="" disabled="disabled" selected="selected">Select your answer</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group text-center">
+									<br>
+                                    <input type="button" onclick="onClickWeighter()" value="Start Prediction" class="btn btn-primary">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group text-center">
+                                    <label id="result" class="model-result"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex align-items-stretch">
+                <div class="info-wrap w-100 p-5 img" style="background-image: url({{ url_for('static', filename='images/logo.png') }});">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="wrapper">
+                <div class="row mb-5">
+                    <div class="col-md-3">
+                        <div class="dbox w-100 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-map-marker"></span>
+                            </div>
+                            <div class="text">
+                                <p><span>Address:</span> Philadelphia, PA 19148</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dbox w-100 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-phone"></span>
+                            </div>
+                            <div class="text">
+                                <p><span>Phone:</span> <a href="#">+1 (646-379-3176)</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dbox w-100 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-paper-plane"></span>
+                            </div>
+                            <div class="text">
+                                <p><span>Email:</span> <a href="#">yelhaim@wgu.edu</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dbox w-100 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-globe"></span>
+                            </div>
+                            <div class="text">
+                                <p><span>Website</span> <a href="#">bio-cardio.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+</body>
+</html>
+
